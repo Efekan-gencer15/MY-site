@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}İletişim - Portfolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm fade-in">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">İletişim</h1>
+                    
+                    <form class="slide-up">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">İsim</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mesaj</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="d-grid gap-3">
+                        <a href="mailto:{{ contact.email }}" class="btn btn-outline-primary">
+                            <i class="bi bi-envelope"></i> {{ contact.email }}
+                        </a>
+                        <a href="{{ contact.linkedin }}" class="btn btn-outline-primary" target="_blank">
+                            <i class="bi bi-linkedin"></i> LinkedIn Profili
+                        </a>
+                        <a href="{{ contact.github }}" class="btn btn-outline-dark" target="_blank">
+                            <i class="bi bi-github"></i> GitHub Profili
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

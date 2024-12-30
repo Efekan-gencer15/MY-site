@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Ana Sayfa - Portfolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 profile-container">
+            <img src="{% static 'images/profile.jpg' %}" alt="Profile" class="img-fluid rounded-circle mb-4 profile-image">
+        </div>
+        <div class="col-md-6 text-end">
+            <div class="p-4">
+                <h1 class="display-4 mb-4">Merhaba, Ben Efekan</h1>
+                <p class="lead">Full Stack Developer</p>
+                <p class="mb-4">Modern web teknolojileri ile kullanıcı dostu ve yenilikçi çözümler geliştiriyorum.</p>
+                <p class="mb-4">Yazılıma olan tutkumla sürekli gelişen bir teknoloji
+                    dünyasında kendimi geliştirmek ve yenilikçi çözümler üretmek için çalışan bir yazılımcıyım.
+                    Teknolojiye olan ilgim, problem çözme becerilerimi kullanarak gerçek dünyadaki sorunlara etkili
+                    çözümler sunma arzusuyla birleşiyor.</p>
+                <a href="{% url 'projects' %}" class="btn btn-primary btn-lg">Projelerimi Gör</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- İkinci Fotoğraf ve Yazı -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 profile-container">
+            <img src="{% static 'images/photo2.jpg' %}" alt="Photo 2" class="img-fluid rounded-circle mb-4 profile-image">
+        </div>
+        <div class="col-md-6 text-end">
+            <div class="p-4">
+                <h2 class="mb-4">Kısaca Benim Hikayem</h2>
+                <p class="mb-4">Yazılıma olan yolculuğum, küçük projeler ve öğrenme tutkusuyla başladı. Zamanla
+                    edindiğim bilgi ve deneyimler sayesinde, modern yazılım teknolojilerini kullanarak işlevsel,
+                    etkileyici ve kullanıcı dostu uygulamalar geliştirme noktasında kendime bir yol çizdim.
+
+                    Geliştirdiğim projeler, sadece birer teknik ürün değil, aynı zamanda işlevsellik, estetik ve
+                    performans dengesi gözetilerek tasarlanmıştır.
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Üçüncü Fotoğraf ve Yazı -->
+    <div class="row align-items-center">
+        <div class="col-md-6 profile-container">
+            <img src="{% static 'images/photo3.jpg' %}" alt="Photo 3" class="img-fluid rounded-circle mb-4 profile-image">
+        </div>
+        <div class="col-md-6 text-end">
+            <div class="p-4">
+                <h2 class="mb-4">Hakkımda</h2>
+                <p class="mb-4">Merhaba, ben Efekan Gencer. Yazılım geliştirme dünyasında tutkuyla çalışan bir
+                    yazılımcıyım. Çocukluk yıllarımdan beri teknolojiye ve bilgisayarlarla neler başarabileceğimize
+                    karşı büyük bir merakım vardı. Bu merak, beni bugünlere taşıyarak yazılım geliştirme, problem çözme
+                    ve yenilikçi projeler üretme konusunda uzmanlaşmamı sağladı.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content="Efekan Gencer - Full Stack Developer Portfolio. Modern web teknolojileri ile kullanıcı dostu ve yenilikçi çözümler.">
+    <meta name="keywords" content="full stack developer, web development, python, django, javascript, react, portfolio">
+    <meta name="author" content="Efekan Gencer">
+    
+    <!-- Open Graph Meta Etiketleri -->
+    <meta property="og:title" content="Efekan Gencer - Portfolio">
+    <meta property="og:description" content="Full Stack Developer Portfolio">
+    <meta property="og:image" content="{% static 'images/profile.jpg' %}">
+    <meta property="og:url" content="https://www.sizinsiteniz.com">
+    
+    <!-- Twitter Card Meta Etiketleri -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Efekan Gencer - Portfolio">
+    <meta name="twitter:description" content="Full Stack Developer Portfolio">
+    <meta name="twitter:image" content="{% static 'images/profile.jpg' %}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sizinsiteniz.com{{ request.path }}">
+    
+    <title>{% block title %}EG{% endblock %} | Efekan Gencer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    
+    <!-- Mevcut CSS dosyaları -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    body.dark-mode .loader {
+        background: #1a1a1a;
+    }
+    </style>
+</head>
+<body>
+    <!-- Head kısmına ekleyin -->
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">EG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'projects' %}">Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'skills' %}">Yetenekler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">İletişim</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-globe"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="?lang=tr">Türkçe</a></li>
+                            <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-outline-primary" id="darkModeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer'ı main tag'inden sonra ekleyin -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Efekan Gencer</h5>
+                    <p class="text-muted">Full Stack Developer</p>
+                    <p class="small">Modern web teknolojileri ile kullanıcı dostu ve yenilikçi çözümler.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Hızlı Linkler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" class="text-decoration-none">Ana Sayfa</a></li>
+                        <li><a href="{% url 'projects' %}" class="text-decoration-none">Projeler</a></li>
+                        <li><a href="{% url 'skills' %}" class="text-decoration-none">Yetenekler</a></li>
+                        <li><a href="{% url 'contact' %}" class="text-decoration-none">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope"></i> efekangencer@gmail.com</li>
+                        <li><i class="bi bi-geo-alt"></i> BURDUR, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Efekan Gencer. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        // Karanlık mod için JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const nav = document.getElementById('mainNav');
+            const icon = darkModeToggle.querySelector('i');
+
+            // Sayfa yüklendiğinde localStorage'dan tercihi al
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                nav.classList.add('navbar-dark', 'bg-dark');
+                icon.classList.remove('bi-moon-fill');
+                icon.classList.add('bi-sun-fill');
+            } else {
+                nav.classList.add('navbar-light', 'bg-light');
+            }
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    nav.classList.remove('navbar-light', 'bg-light');
+                    nav.classList.add('navbar-dark', 'bg-dark');
+                    icon.classList.remove('bi-moon-fill');
+                    icon.classList.add('bi-sun-fill');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    nav.classList.remove('navbar-dark', 'bg-dark');
+                    nav.classList.add('navbar-light', 'bg-light');
+                    icon.classList.remove('bi-sun-fill');
+                    icon.classList.add('bi-moon-fill');
+                    localStorage.setItem('darkMode', null);
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            document.querySelector('.loader').style.display = 'none';
+        });
+    </script>
+
+    <!-- Body sonuna ekleyin -->
+    <button id="scrollToTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4" style="display: none;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script>
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    </script>
+
+    <!-- Navbar'ın altına ekleyin -->
+    <div class="position-fixed start-0 top-50 translate-middle-y d-none d-lg-block" style="z-index: 1000;">
+        <div class="d-flex flex-column gap-2 ms-3">
+            <a href="https://www.linkedin.com/in/efekan-gencer-415561247/" class="btn btn-outline-primary rounded-circle">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/Efekan-gencer15" class="btn btn-outline-dark rounded-circle">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="#" class="btn btn-outline-info rounded-circle">
+                <i class="bi bi-twitter"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

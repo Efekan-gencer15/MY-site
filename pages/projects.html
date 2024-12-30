@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Projeler - Portfolio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Projelerim</h1>
+    
+    <!-- Filtreleme butonları -->
+    <div class="mb-4">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary active" data-filter="all">Tümü</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="web">Web</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="mobile">Mobil</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="desktop">Masaüstü</button>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-4 mb-4" data-category="{{ project.category }}">
+            <div class="card h-100">
+                {% if project.image %}
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">Teknolojiler: {{ project.technologies }}</small>
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    {% if project.github_link %}
+                    <a href="{{ project.github_link }}" class="btn btn-outline-dark btn-sm me-2" target="_blank">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                    {% endif %}
+                    {% if project.live_link %}
+                    <a href="{{ project.live_link }}" class="btn btn-primary btn-sm" target="_blank">
+                        <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <p>Henüz proje eklenmemiş.</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Proje istatistikleri -->
+    <div class="row text-center mb-5">
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="display-4 mb-0">{{ total_projects }}</h3>
+                    <p class="text-muted">Toplam Proje</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="display-4 mb-0">{{ github_stars }}</h3>
+                    <p class="text-muted">GitHub Yıldızı</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="display-4 mb-0">{{ completed_projects }}</h3>
+                    <p class="text-muted">Tamamlanan Proje</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="display-4 mb-0">{{ happy_clients }}</h3>
+                    <p class="text-muted">Mutlu Müşteri</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
