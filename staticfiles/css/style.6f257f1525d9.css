@@ -1,0 +1,162 @@
+/* Genel stil */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Karanlık mod stilleri */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f8f9fa;
+}
+
+/* Karanlık modda card stilleri */
+body.dark-mode .card {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #f8f9fa;
+}
+
+/* Karanlık modda navbar stilleri */
+body.dark-mode .navbar {
+    background-color: #2d2d2d !important;
+    border-bottom: 1px solid #404040;
+}
+
+body.dark-mode .nav-link {
+    color: #f8f9fa !important;
+}
+
+body.dark-mode .navbar-brand {
+    color: #f8f9fa !important;
+}
+
+/* Karanlık modda buton stilleri */
+body.dark-mode .btn-outline-primary {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background-color: #f8f9fa;
+    color: #1a1a1a;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #f8f9fa;
+}
+
+/* Karanlık modda metin renkleri */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode .lead {
+    color: #f8f9fa;
+}
+
+/* Profil resmi stil */
+.profile-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive ayarlar */
+@media (max-width: 768px) {
+    .profile-container {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-image {
+        max-width: 150px;
+    }
+} 
+
+/* Animasyonlar için */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Kartlar için hover efekti */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+} 
+
+/* Teknoloji ikonları için stil */
+.tech-icon {
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+    transform: translateY(-10px);
+}
+
+/* Progress bar animasyonu */
+.progress-bar {
+    transition: width 1s ease-in-out;
+}
+
+/* Karanlık mod için ek stiller */
+body.dark-mode .progress {
+    background-color: #404040;
+}
+
+body.dark-mode .tech-icon {
+    color: #f8f9fa;
+}
+
+/* Hover efektleri */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+} 
